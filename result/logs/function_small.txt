@@ -1,0 +1,17 @@
+---> CALC | function_small | 
+
+Ackley          | d= 6 | r= 11.6 | t=  26.77 | e_min=0.0e+00 | e_max=0.0e+00
+Alpine          | d= 6 | r=  5.9 | t=   4.50 | e_min=0.0e+00 | e_max=0.0e+00
+Brown           | d= 6 | r= 11.0 | t=   6.38 | e_min=5.5e-08 | e_max=1.4e-15
+Dixon           | d= 6 | r=  7.3 | t=  47.91 | e_min=7.9e-13 | e_max=0.0e+00
+Exponential     | d= 6 | r=  6.5 | t=   4.75 | e_min=0.0e+00 | e_max=0.0e+00
+Grienwank       | d= 6 | r=  5.4 | t=  19.92 | e_min=4.6e-16 | e_max=6.3e-16
+Michalewicz     | d= 6 | r=  6.7 | t=   4.78 | e_min=1.3e-16 | e_max=2.2e-16
+Qing            | d= 6 | r=  9.3 | t=   5.83 | e_min=9.8e-09 | e_max=3.3e-16
+Rastrigin       | d= 6 | r=  5.2 | t=   4.69 | e_min=1.2e-16 | e_max=7.3e-16
+Rosenbrock      | d= 6 | r=  3.7 | t=  19.35 | e_min=1.5e-13 | e_max=3.7e-16
+Schaffer        | d= 6 | r= 13.2 | t=  90.30 | e_min=1.2e-16 | e_max=0.0e+00
+Schwefel        | d= 6 | r=  6.7 | t=   4.51 | e_min=4.9e-16 | e_max=1.9e-16
+
+===> DONE | function_small | Time:    274.445
+
