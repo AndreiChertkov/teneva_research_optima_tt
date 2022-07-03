@@ -65,7 +65,7 @@ def demo_function_small(name='Brown', d=6, n=16, dy=0.5, nswp=10, r=50):
     log(f'\n===> DONE | function_small | Time: {t_full:-10.3f}\n')
 
 
-def demo_random_big(d=50, n=10, r=2, s=0.1):
+def demo_random_big(d=100, n=10, r=2, s=0.01):
     t_full = tpc()
 
     log = Log()

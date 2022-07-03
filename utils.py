@@ -31,7 +31,6 @@ def rand_for_opt(n, r, i_min, y_min, y_min_scale=1., norm_scale=1.E+5):
     y = teneva.get(Y, i_min)
     D = teneva.tensor_delta(n, i_min, y_min - y)
     Y = teneva.add(Y, D)
-    # Y = teneva.truncate(Y, 1.E-16)
     return Y
 
 

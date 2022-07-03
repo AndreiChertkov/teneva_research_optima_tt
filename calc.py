@@ -35,7 +35,7 @@ def calc_function_small(d=6, n=16):
 
         # Build the TT-approximation by the TT-CROSS method:
         Y = teneva.rand(func.n, r=1)
-        Y = teneva.cross(func.get_f_ind, Y, m=1.E+5, cache={})
+        Y = teneva.cross(func.get_f_ind, Y, m=1.E+5, dr_max=1, cache={})
         Y = teneva.truncate(Y, e=1.E-8)
         r = teneva.erank(Y)
 
@@ -76,7 +76,7 @@ def calc_function_small(d=6, n=16):
     show_function_small()
 
 
-def calc_random_big(ds=[10,25,50], n=10, r=2, ss=[1., 0.1, 0.01], rep=1):
+def calc_random_big(ds=[10,15,20], n=10, r=2, ss=[1., 0.1, 0.01], rep=1):
     t_full = tpc()
 
     log = Log('result/logs/random_big.txt')
