@@ -15,7 +15,7 @@ def demo_function_big():
     raise NotImplmentedError()
 
 
-def demo_function_small(name='Brown', d=6, n=16, dy=0.5, nswp=10, r=50):
+def demo_function_small(name='Brown', d=6, n=16, dy=0.5):
     t_full = tpc()
 
     log = Log()
@@ -28,7 +28,7 @@ def demo_function_small(name='Brown', d=6, n=16, dy=0.5, nswp=10, r=50):
 
     # Build the TT-approximation by the TT-CROSS method:
     Y = teneva.rand(func.n, r=1)
-    Y = teneva.cross(func.get_f_ind, Y, m=1.E+5, cache={})
+    Y = teneva.cross(func.get_f_ind, Y, m=1.E+5, dr_max=1, cache={})
     Y = teneva.truncate(Y, e=1.E-8)
     r_real = teneva.erank(Y)
 
@@ -40,7 +40,7 @@ def demo_function_small(name='Brown', d=6, n=16, dy=0.5, nswp=10, r=50):
     # Find min/max values for TT-tensor by optima_tt:
     log('\n... log from "optima_tt": \n')
     t = tpc()
-    i_min, i_max = teneva.optima_tt(Y, nswp, 2, r=r, log=True)
+    i_min, i_max = teneva.optima_tt(Y, log=True)
     y_min = teneva.get(Y, i_min)
     y_max = teneva.get(Y, i_max)
     t = tpc() - t
@@ -65,7 +65,7 @@ def demo_function_small(name='Brown', d=6, n=16, dy=0.5, nswp=10, r=50):
     log(f'\n===> DONE | function_small | Time: {t_full:-10.3f}\n')
 
 
-def demo_random_big(d=100, n=10, r=2, s=0.01):
+def demo_random_big(d=20, n=10, r=2, s=1.):
     t_full = tpc()
 
     log = Log()
@@ -100,7 +100,7 @@ def demo_random_big(d=100, n=10, r=2, s=0.01):
     log(f'\n===> DONE | random_big | Time: {t_full:-10.3f}\n')
 
 
-def demo_random_small(d=6, n_=[15, 15], r=6):
+def demo_random_small(d=5, n_=[10, 10], r=5):
     t_full = tpc()
 
     log = Log()
