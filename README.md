@@ -12,7 +12,7 @@ Numerical experiments for **optima_tt** method from [teneva](https://github.com/
 
 2. Install dependencies:
     ```bash
-    pip install numpy teneva==0.9.8
+    pip install numpy teneva==0.9.10
     ```
 
 

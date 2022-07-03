@@ -15,7 +15,7 @@ def demo_function_big():
     raise NotImplmentedError()
 
 
-def demo_function_small(name='Dixon', d=6, n=16, dy=0.5):
+def demo_function_small(name='Brown', d=6, n=16, dy=0.5, nswp=10, r=50):
     t_full = tpc()
 
     log = Log()
@@ -30,7 +30,7 @@ def demo_function_small(name='Dixon', d=6, n=16, dy=0.5):
     Y = teneva.rand(func.n, r=1)
     Y = teneva.cross(func.get_f_ind, Y, m=1.E+5, cache={})
     Y = teneva.truncate(Y, e=1.E-8)
-    r = teneva.erank(Y)
+    r_real = teneva.erank(Y)
 
     # Generate full tensor and find its min/max values:
     Y_full = teneva.full(Y)
@@ -40,7 +40,7 @@ def demo_function_small(name='Dixon', d=6, n=16, dy=0.5):
     # Find min/max values for TT-tensor by optima_tt:
     log('\n... log from "optima_tt": \n')
     t = tpc()
-    i_min, i_max = teneva.optima_tt(Y, log=True)
+    i_min, i_max = teneva.optima_tt(Y, nswp, 2, r=r, log=True)
     y_min = teneva.get(Y, i_min)
     y_max = teneva.get(Y, i_max)
     t = tpc() - t
@@ -55,7 +55,7 @@ def demo_function_small(name='Dixon', d=6, n=16, dy=0.5):
     text = ''
     text += name + ' ' * max(0, 15-len(name)) +  ' | '
     text += f'd={d:-2d} | '
-    text += f'r={r:-5.1f} | '
+    text += f'r={r_real:-5.1f} | '
     text += f't={t:-7.2f} | '
     text += f'e_min={e_min:-7.1e} | '
     text += f'e_max={e_max:-7.1e}'
