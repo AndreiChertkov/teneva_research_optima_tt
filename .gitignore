@@ -1,0 +1,9 @@
+*~
+*.egg
+*.egg-info/
+*synctex.gz*
+.DS_Store
+.ipynb_checkpoints
+.thumbs.db
+.Thumbs.db
+__pycache__/
