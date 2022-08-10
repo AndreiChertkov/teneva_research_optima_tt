@@ -3,7 +3,7 @@
 
 ## Description
 
-Numerical experiments for **optima_tt** method from [teneva](https://github.com/AndreiChertkov/teneva) python package.
+Numerical experiments for **optima_tt** method from [teneva](https://github.com/AndreiChertkov/teneva) python package. This method finds items which relate to min and max elements of the tensor train (TT) tensor.
 
 
 ## Installation
@@ -12,25 +12,21 @@ Numerical experiments for **optima_tt** method from [teneva](https://github.com/
 
 2. Install dependencies:
     ```bash
-    pip install numpy teneva==0.9.10
+    pip install numpy matplotlib seaborn teneva==0.11.1
     ```
 
 
 ## Usage
 
-1. Run `python calc.py random_small`. The results will be presented in the text files `result/logs/random_small.txt` and `result/logs/random_small_show.txt`. All calculation results will be also saved in the file `result/data/random_small.npz`;
+1. Run `python calc.py random_small`. The results will be presented in the text files `result/logs_calc/random_small.txt` and `result/logs_show/random_small.txt`. All calculation results will be also saved in the file `result/data/random_small.npz`;
 
-2. Run `python calc.py random_big`. The results will be presented in the text files `result/logs/random_big.txt` and `result/logs/random_big_show.txt`. All calculation results will be also saved in the file `result/data/random_big.npz`;
+2. Run `python calc.py function_small`. The results will be presented in the text files `result/logs_calc/function_small.txt` and `result/logs_show/function_small.txt`. All calculation results will be also saved in the file `result/data/function_small.npz`;
 
-3. Run `python calc.py function_small`. The results will be presented in the text files `result/logs/function_small.txt` and `result/logs/function_small_show.txt`. All calculation results will be also saved in the file `result/data/function_small.npz`;
-
-4. Run `python calc.py function_big` (TODO). The results will be presented in the text files `result/logs/function_big.txt` and `result/logs/function_big_show.txt`. All calculation results will be also saved in the file `result/data/function_big.npz`;
-
-5. Run `python calc.py random_stat` (TODO). The results will be presented in the text files `result/logs/random_stat.txt` and `result/logs/random_stat_show.txt`. All calculation results will be also saved in the file `result/data/random_stat.npz`.
-
-> You can also run `python demo.py MODE`, where argument `MODE` is `random_small`, `random_big`, `function_small`, `function_big` (TODO) or `random_stat` (TODO) for demonstration of the corresponding calculation for one fixed set of parameters with detailed log output.
+3. Run `python calc.py function_big`. The results will be presented in the text files `result/logs_calc/function_big.txt` and `result/logs_show/function_big.txt`. All calculation results will be also saved in the file `result/data/function_big.npz`.
 
 
-## Author
+## Authors
 
-- [Andrei Chertkov](https://github.com/AndreiChertkov) (a.chertkov@skoltech.ru).
+- [Andrei Chertkov](https://github.com/AndreiChertkov) (a.chertkov@skoltech.ru);
+- [Gleb Ryzhakov](https://github.com/G-Ryzhakov) (g.ryzhakov@skoltech.ru);
+- [Ivan Oseledets](https://github.com/oseledets) (i.oseledets@skoltech.ru).
