@@ -1,0 +1,50 @@
+---> SHOW | function_small | 
+
+
+
+% ----------------------------------------
+% AUTO GENERATED DATA | START
+% INFO   > 
+% dim    : 6 
+% size   : 16 
+
+
+Ackley         &  11.6 & 7.11e-15 & 0        \\
+\hline
+
+Alpine         &   3.0 & 8.88e-16 & 0        \\
+\hline
+
+Dixon          &   5.4 & 2.02e-11 & 0        \\
+\hline
+
+Exponential    &   4.8 & 0        & 2.78e-17 \\
+\hline
+
+Grienwank      &  11.3 & 1.26e-13 & 0        \\
+\hline
+
+Michalewicz    &   3.5 & 1.33e-15 & 5.90e-17 \\
+\hline
+
+Qing           &   4.4 & 8.38e-06 & 1.22e-04 \\
+\hline
+
+Rastrigin      &   4.1 & 0        & 0        \\
+\hline
+
+Schaffer       &  12.0 & 1.78e-15 & 4.44e-16 \\
+\hline
+
+Schwefel       &   2.8 & 2.84e-14 & 0        \\
+\hline
+
+
+% AUTO GENERATED DATA | END
+% ========================================
+
+
+
+
+===> DONE | function_small | Time:      0.004
+

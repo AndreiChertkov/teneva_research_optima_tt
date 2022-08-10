@@ -1,0 +1,36 @@
+---> SHOW | function_big | 
+
+
+
+% ----------------------------------------
+% AUTO GENERATED DATA | START
+% INFO   > 
+% dim    : 100 
+% size   : 1024 
+% mode   : tt 
+
+
+Exponential    &   1.0 & 0        &  34.4 \\
+\hline
+
+Grienwank      &   3.0 & 4.50e-14 &  39.1 \\
+\hline
+
+Qing           &   2.0 & 0        &  35.6 \\
+\hline
+
+Rastrigin      &   2.0 & 2.27e-13 &  34.9 \\
+\hline
+
+Schwefel       &   2.0 & 0        &  35.8 \\
+\hline
+
+
+% AUTO GENERATED DATA | END
+% ========================================
+
+
+
+
+===> DONE | function_big | Time:      0.005
+
