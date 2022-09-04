@@ -7,3 +7,6 @@
 .thumbs.db
 .Thumbs.db
 __pycache__/
+_tmp/
+_.md
+_teneva_research_optima_tt.jpg

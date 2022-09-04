@@ -46,5 +46,5 @@ Schwefel       &   2.8 & 2.84e-14 & 0        \\
 
 
 
-===> DONE | function_small | Time:      0.004
+===> DONE | function_small | Time:      0.005
 

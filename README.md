@@ -3,7 +3,7 @@
 
 ## Description
 
-Numerical experiments for **optima_tt** method from [teneva](https://github.com/AndreiChertkov/teneva) python package. This method finds items which relate to min and max elements of the tensor train (TT) tensor.
+Numerical experiments for **optima_tt** method from [teneva](https://github.com/AndreiChertkov/teneva) python package. This method finds items which relate to min and max elements of the tensor in the tensor train (TT) format.
 
 
 ## Installation
@@ -12,7 +12,7 @@ Numerical experiments for **optima_tt** method from [teneva](https://github.com/
 
 2. Install dependencies:
     ```bash
-    pip install numpy matplotlib seaborn teneva==0.11.1
+    pip install numpy matplotlib seaborn teneva==0.11.6
     ```
 
 

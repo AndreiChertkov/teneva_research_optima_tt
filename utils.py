@@ -19,8 +19,7 @@ class Log:
 
 
 def folder_ensure(fpath):
-    if not os.path.exists(fpath):
-        os.makedirs(fpath)
+    os.makedirs(fpath, exist_ok=True)
 
 
 def tex_auto_end():

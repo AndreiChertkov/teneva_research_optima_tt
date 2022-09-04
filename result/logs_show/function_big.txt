@@ -10,19 +10,19 @@
 % mode   : tt 
 
 
-Exponential    &   1.0 & 0        &  34.4 \\
+Exponential    &   1.0 & 0        &  35.5 \\
 \hline
 
-Grienwank      &   3.0 & 4.50e-14 &  39.1 \\
+Grienwank      &   3.0 & 4.50e-14 &  41.0 \\
 \hline
 
-Qing           &   2.0 & 0        &  35.6 \\
+Qing           &   2.0 & 0        &  37.2 \\
 \hline
 
-Rastrigin      &   2.0 & 2.27e-13 &  34.9 \\
+Rastrigin      &   2.0 & 2.27e-13 &  36.7 \\
 \hline
 
-Schwefel       &   2.0 & 0        &  35.8 \\
+Schwefel       &   2.0 & 0        &  38.0 \\
 \hline
 
 
@@ -32,5 +32,5 @@ Schwefel       &   2.0 & 0        &  35.8 \\
 
 
 
-===> DONE | function_big | Time:      0.005
+===> DONE | function_big | Time:      0.006
 

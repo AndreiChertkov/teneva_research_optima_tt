@@ -1,10 +1,10 @@
 ---> CALC | function_big | d: 100 | n:     1024 | k:  100
 
-Exponential  | r:  1.0 | t:  34.377 | e_min: 0.0e+00
-Grienwank    | r:  3.0 | t:  39.128 | e_min: 4.5e-14
-Qing         | r:  2.0 | t:  35.555 | e_min: 0.0e+00
-Rastrigin    | r:  2.0 | t:  34.922 | e_min: 2.3e-13
-Schwefel     | r:  2.0 | t:  35.794 | e_min: 0.0e+00
+Exponential  | r:  1.0 | t:  35.536 | e_min: 0.0e+00
+Grienwank    | r:  3.0 | t:  41.019 | e_min: 4.5e-14
+Qing         | r:  2.0 | t:  37.237 | e_min: 0.0e+00
+Rastrigin    | r:  2.0 | t:  36.695 | e_min: 2.3e-13
+Schwefel     | r:  2.0 | t:  38.005 | e_min: 0.0e+00
 
-===> DONE | function_big | Time:    189.540
+===> DONE | function_big | Time:    198.254
 
