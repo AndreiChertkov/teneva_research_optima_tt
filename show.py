@@ -16,23 +16,6 @@ from utils import tex_row_end
 from utils import tex_row_line
 
 
-def show_deps(fpath='./result/plot/dep_k.png'):
-    t_full = tpc()
-
-    log = Log('result/logs_show/deps.txt')
-    log('---> SHOW | deps | \n')
-
-    result = np.load('result/data/deps.npz', allow_pickle=True)
-    data = result.get('data').item()
-
-    plot_dep_k(data, fpath)
-
-    log(f'\n\nPlot is saved into "{fpath}"\n\n')
-
-    t_full = tpc() - t_full
-    log(f'\n===> DONE | deps | Time: {t_full:-10.3f}\n')
-
-
 def show_function_big(mode='tt'):
     t_full = tpc()
 
@@ -167,41 +150,18 @@ def show_random_small_hist(fpath='./result/plot/random_small_hist.png'):
     log(f'\n===> DONE | random_small_hist | Time: {t_full:-10.3f}\n')
 
 
-def show_random_small_k(fpath='./result/plot/random_small_k.png'):
-    t_full = tpc()
-
-    log = Log('result/logs_show/random_small_k.txt')
-    log('---> SHOW | random_small_k | \n')
-
-    result = np.load('result/data/random_small_k.npz', allow_pickle=True)
-    data = result.get('data').item()
-
-    plot_dep_random_k(data, fpath)
-
-    log(f'\n\nPlot is saved into "{fpath}"\n\n')
-
-    t_full = tpc() - t_full
-    log(f'\n===> DONE | random_small_k | Time: {t_full:-10.3f}\n')
-
-
 if __name__ == '__main__':
     np.random.seed(42)
 
     mode = sys.argv[1] if len(sys.argv) > 1 else None
 
-    if mode == 'deps':
-        show_deps()
-    elif mode == 'function_big':
+    if mode == 'function_big':
         show_function_big()
-    elif mode == 'function_big_qtt':
-        show_function_big(mode='qtt')
     elif mode == 'function_small':
         show_function_small()
     elif mode == 'random_small':
         show_random_small()
     elif mode == 'random_small_hist':
         show_random_small_hist()
-    elif mode == 'random_small_k':
-        show_random_small_k()
     else:
         raise ValueError(f'Invalid computation mode "{mode}"')
