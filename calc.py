@@ -10,6 +10,8 @@ from show import show_deps
 from show import show_function_big
 from show import show_function_small
 from show import show_random_small
+from show import show_random_small_hist
+from show import show_random_small_k
 from utils import Log
 from utils import folder_ensure
 
@@ -272,6 +274,129 @@ def calc_random_small(d_=[4,6], n_=[5,20], r_=[1,5], k=100, rep=100):
     show_random_small()
 
 
+def calc_random_small_hist(d=6, n=16, r=3, k_=[1, 10, 25], rep=10000):
+    t_full = tpc()
+
+    log = Log('result/logs_calc/random_small_hist.txt')
+    log(f'---> CALC | random_small_hist |\n')
+
+    data = {}
+
+    for k in k_:
+        t = 0.
+        e_min = []
+        e_max = []
+
+        for _ in range(1, rep+1):
+            # Create random TT-tensor of shape n and rank r:
+            Y = teneva.tensor_rand([n]*d, r)
+
+            # Generate full tensor and find its min/max values:
+            Y_full = teneva.full(Y)
+            i_max_real = np.unravel_index(np.argmax(np.abs(Y_full)), [n]*d)
+            y_max_real = Y_full[i_max_real]
+
+            # Find max value for TT-tensor by optima_tt:
+            t_cur = tpc()
+            i_max, y_max = teneva.optima_tt_max(Y, k)
+            t += tpc() - t_cur
+
+            # Calculate the error:
+            e_max.append(abs(y_max / y_max_real))
+
+        t /= rep
+
+        data[k] = {'t': t, 'e_max': e_max}
+
+        text = ''
+        text += f'k: {k:-4d} | '
+        text += f't: {t:-8.3f} * {rep:3d} | '
+        text += f'e_max: {np.mean(e_max):-7.1e}'
+        log(text)
+
+    np.savez_compressed('result/data/random_small_hist.npz', data=data,
+        d=d, n=n, r=r, k_=k_, rep=rep)
+
+    t_full = tpc() - t_full
+    log(f'\n===> DONE | random_small_hist | Time: {t_full:-10.3f}\n')
+
+    show_random_small_hist()
+
+
+def calc_random_small_k(d_=[4,5,6], n=16, r=3, k_=[1] + list(np.arange(10,201,10)), rep=100):
+    t_full = tpc()
+
+    log = Log('result/logs_calc/random_small_k.txt')
+    log(f'---> CALC | random_small_k |\n')
+
+    data = {}
+
+    for d in d_:
+        data[d] = {}
+
+        for k in k_:
+            t = 0.
+            e_min = []
+            e_max = []
+
+            for _ in range(1, rep+1):
+                e_min_ = []
+                e_max_ = []
+
+                for __ in range(1, rep+1):
+                    # Create random TT-tensor of shape n and rank r:
+                    Y = teneva.tensor_rand([n] * d, r)
+
+                    # Generate full tensor and find its min/max values:
+                    Y_full = teneva.full(Y)
+                    i_min_real = np.unravel_index(np.argmin(Y_full), [n] * d)
+                    i_max_real = np.unravel_index(np.argmax(Y_full), [n] * d)
+                    y_min_real = Y_full[i_min_real]
+                    y_max_real = Y_full[i_max_real]
+
+                    # Find min/max values for TT-tensor by optima_tt:
+                    t_cur = tpc()
+                    i_min, y_min, i_max, y_max = teneva.optima_tt(Y, k)
+                    t += tpc() - t_cur
+
+                    # Calculate the errors:
+                    e_min_.append(abs(y_min - y_min_real))
+                    e_max_.append(abs(y_max - y_max_real))
+
+                # Save the max error:
+                e_min.append(np.max(e_min_))
+                e_max.append(np.max(e_max_))
+
+            # Save the mean time and error:
+            t /= rep**2
+            e_min_var = np.std(e_min, ddof=1)
+            e_max_var = np.std(e_max, ddof=1)
+            e_min = np.mean(e_min)
+            e_max = np.mean(e_max)
+
+            data[d][k] = {'t': t, 'e_min': e_min, 'e_max': e_max,
+                'e_min_var': e_min_var, 'e_max_var': e_max_var}
+
+            text = ''
+            text += f'd: {d:-4d} | '
+            text += f'r: {r:-3d} | '
+            text += f'k: {k:-4d} | '
+            text += f't: {t:-8.3f} * {rep**2:5d} | '
+            text += f'e_min: {e_min:-7.1e} (+/- {e_min_var:-7.1e}) | '
+            text += f'e_max: {e_max:-7.1e} (+/- {e_max_var:-7.1e}) | '
+            log(text)
+
+        log('\n')
+
+    np.savez_compressed('result/data/random_small_k.npz', data=data,
+        d_=d_, n=n, r=r, k_=k_, rep=rep)
+
+    t_full = tpc() - t_full
+    log(f'\n===> DONE | random_small_k | Time: {t_full:-10.3f}\n')
+
+    show_random_small_k()
+
+
 if __name__ == '__main__':
     np.random.seed(42)
 
@@ -293,5 +418,9 @@ if __name__ == '__main__':
         calc_function_small()
     elif mode == 'random_small':
         calc_random_small()
+    elif mode == 'random_small_hist':
+        calc_random_small_hist()
+    elif mode == 'random_small_k':
+        calc_random_small_k()
     else:
         raise ValueError(f'Invalid computation mode "{mode}"')

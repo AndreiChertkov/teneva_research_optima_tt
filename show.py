@@ -5,6 +5,8 @@ from time import perf_counter as tpc
 
 
 from plot import plot_dep_k
+from plot import plot_random_small_hist
+from plot import plot_dep_random_k
 from utils import Log
 from utils import tex_auto_end
 from utils import tex_auto_start
@@ -148,6 +150,40 @@ def show_random_small():
     log(f'\n===> DONE | random_small | Time: {t_full:-10.3f}\n')
 
 
+def show_random_small_hist(fpath='./result/plot/random_small_hist.png'):
+    t_full = tpc()
+
+    log = Log('result/logs_show/random_small_hist.txt')
+    log('---> SHOW | random_small_hist | \n')
+
+    result = np.load('result/data/random_small_hist.npz', allow_pickle=True)
+    data = result.get('data').item()
+
+    plot_random_small_hist(data, fpath)
+
+    log(f'\n\nPlot is saved into "{fpath}"\n\n')
+
+    t_full = tpc() - t_full
+    log(f'\n===> DONE | random_small_hist | Time: {t_full:-10.3f}\n')
+
+
+def show_random_small_k(fpath='./result/plot/random_small_k.png'):
+    t_full = tpc()
+
+    log = Log('result/logs_show/random_small_k.txt')
+    log('---> SHOW | random_small_k | \n')
+
+    result = np.load('result/data/random_small_k.npz', allow_pickle=True)
+    data = result.get('data').item()
+
+    plot_dep_random_k(data, fpath)
+
+    log(f'\n\nPlot is saved into "{fpath}"\n\n')
+
+    t_full = tpc() - t_full
+    log(f'\n===> DONE | random_small_k | Time: {t_full:-10.3f}\n')
+
+
 if __name__ == '__main__':
     np.random.seed(42)
 
@@ -163,5 +199,9 @@ if __name__ == '__main__':
         show_function_small()
     elif mode == 'random_small':
         show_random_small()
+    elif mode == 'random_small_hist':
+        show_random_small_hist()
+    elif mode == 'random_small_k':
+        show_random_small_k()
     else:
         raise ValueError(f'Invalid computation mode "{mode}"')

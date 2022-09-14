@@ -1,0 +1,10 @@
+---> SHOW | random_small_k | 
+
+
+
+Plot is saved into "./result/plot/random_small_k.png"
+
+
+
+===> DONE | random_small_k | Time:      0.912
+
