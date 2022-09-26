@@ -4,9 +4,7 @@ import sys
 from time import perf_counter as tpc
 
 
-from plot import plot_dep_k
 from plot import plot_random_small_hist
-from plot import plot_dep_random_k
 from utils import Log
 from utils import tex_auto_end
 from utils import tex_auto_start

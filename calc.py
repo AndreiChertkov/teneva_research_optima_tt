@@ -6,12 +6,10 @@ from time import perf_counter as tpc
 import teneva
 
 
-from show import show_deps
 from show import show_function_big
 from show import show_function_small
 from show import show_random_small
 from show import show_random_small_hist
-from show import show_random_small_k
 from utils import Log
 from utils import folder_ensure
 
